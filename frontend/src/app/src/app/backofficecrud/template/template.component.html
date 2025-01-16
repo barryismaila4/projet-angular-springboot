@@ -1,0 +1,40 @@
+<div class="dashboard-container">
+    <header class="header">
+      <div class="logo">
+        <h1>Backoffice - Gestion CRUD</h1>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a routerLink="category-list" routerLinkActive="active" class="nav-item">Catégories</a></li>
+          <li><a routerLink="school-list" routerLinkActive="active" class="nav-item">Écoles de danse</a></li>
+          <li><a routerLink="course-list" routerLinkActive="active" class="nav-item">Cours</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <div class="main-content">
+      <aside class="sidebar">
+        <h2>Actions rapides</h2>
+        <ul>
+          <li><a routerLink="category-post">Ajouter Catégorie</a></li>
+          <li><a routerLink="school-post">Ajouter École</a></li>
+          <li><a routerLink="course-post">Ajouter Cours</a></li>
+        </ul>
+      </aside>
+  
+      <section class="content-area">
+        <div class="intro-container">
+          <h2 class="dance-title">Bienvenue dans l'Univers de la Danse</h2>
+          <p class="intro-text">Découvrez nos catégories, écoles et cours de danse qui vous inspireront à bouger !</p>
+          <div class="dance-image">
+            <img src="https://th.bing.com/th/id/R.e9c50e9f8517bb676f985a183d81637c?rik=nY2bA5KgatJ%2bFQ&riu=http%3a%2f%2fwww.phoenixdancetheatre.co.uk%2fwp-content%2fuploads%2f2014%2f01%2fDSC_1910.jpg&ehk=DF%2ff5IU7CijO2zr5z4OcosgibnLIXkXDbVTJPUuw4q8%3d&risl=1&pid=ImgRaw&r=0" alt="Image de danse" />
+          </div>
+        </div>
+        <router-outlet></router-outlet>
+      </section>
+    </div>
+    <footer class="footer w3-container w3-dark-grey w3-padding-32 w3-center">
+        <p class="w3-medium">© 2025 Site de Danse - Tous droits réservés</p>
+      </footer>
+  </div>
+  

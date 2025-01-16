@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Liste des écoles de danse</h2>
+
+  <!-- Bouton pour ajouter une école -->
+  <div class="mb-3">
+    <a [routerLink]="['/crud/school-post']" class="btn btn-primary">Ajouter une école</a>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Localisation</th>
+        <th>Jour d'ouverture</th>
+        <th>Jour de fermeture</th>
+        <th>Heure d'ouverture</th>
+        <th>Heure de fermeture</th>
+        <th>Catégorie de danse</th> <!-- Affichage du nom de la catégorie -->
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let school of schools">
+        <td>{{ school.name }}</td>
+        <td>{{ school.localisation }}</td>
+        <td>{{ school.openday }}</td>
+        <td>{{ school.closeday }}</td>
+        <td>{{ school.opentime }}</td>
+        <td>{{ school.closetime }}</td>
+        <td>{{ school.danceCategory?.name }}</td> <!-- Affichage du nom de la catégorie -->
+        <td>
+          <a [routerLink]="['/crud/school-update', school.id]" class="btn btn-warning btn-sm">Modifier</a>
+          <button (click)="deleteSchool(school.id)" class="btn btn-danger btn-sm">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

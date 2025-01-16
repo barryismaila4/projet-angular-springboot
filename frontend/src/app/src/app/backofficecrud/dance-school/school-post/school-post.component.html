@@ -1,0 +1,40 @@
+<form [formGroup]="schoolForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Nom de l'école</label>
+    <input id="name" formControlName="name" />
+  </div>
+  <div>
+    <label for="localisation">Localisation</label>
+    <input id="localisation" formControlName="localisation" />
+  </div>
+  <div>
+    <label for="openday">Jour d'ouverture</label>
+    <input id="openday" formControlName="openday" />
+  </div>
+  <div>
+    <label for="closeday">Jour de fermeture</label>
+    <input id="closeday" formControlName="closeday" />
+  </div>
+  <div>
+    <label for="opentime">Heure d'ouverture</label>
+    <input id="opentime" formControlName="opentime" />
+  </div>
+  <div>
+    <label for="closetime">Heure de fermeture</label>
+    <input id="closetime" formControlName="closetime" />
+  </div>
+
+  <!-- Sélection de la catégorie de danse -->
+  <div>
+    <label for="danceCategoryId">Catégorie de danse</label>
+    <select id="danceCategoryId" formControlName="danceCategoryId">
+      <option [value]="null" disabled selected>Choisir une catégorie</option>
+      <option *ngFor="let category of danceCategories" [value]="category.id">
+        {{ category.name }}
+      </option>
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="schoolForm.invalid">Créer l'école</button>
+  <button type="button" (click)="onReturn()">Retour</button>
+</form>

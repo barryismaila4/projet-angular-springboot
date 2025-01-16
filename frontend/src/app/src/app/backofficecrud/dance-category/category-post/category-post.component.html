@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Ajouter une catégorie de danse</h2>
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nom de la catégorie</label>
+        <input id="name" formControlName="name" class="form-control" type="text" placeholder="Nom de la catégorie" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+    
+    <!-- Bouton de retour -->
+    <button (click)="goBack()" class="btn btn-secondary mt-3">Retour à la liste</button>
+  </div>
+  

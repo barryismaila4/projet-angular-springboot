@@ -1,0 +1,42 @@
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Titre du cours</label>
+      <input id="title" formControlName="title" />
+      <div *ngIf="courseForm.get('title')?.invalid && (courseForm.get('title')?.touched || courseForm.get('title')?.dirty)">
+        <small class="error">Le titre est requis.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="contenu">Contenu</label>
+      <textarea id="contenu" formControlName="contenu"></textarea>
+      <div *ngIf="courseForm.get('contenu')?.invalid && (courseForm.get('contenu')?.touched || courseForm.get('contenu')?.dirty)">
+        <small class="error">Le contenu est requis.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="instructor">Instructeur</label>
+      <input id="instructor" formControlName="instructor" />
+      <div *ngIf="courseForm.get('instructor')?.invalid && (courseForm.get('instructor')?.touched || courseForm.get('instructor')?.dirty)">
+        <small class="error">Le nom de l'instructeur est requis.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="danceSchoolId">École de danse</label>
+      <select id="danceSchoolId" formControlName="danceSchoolId">
+        <option [value]="null" disabled selected>Choisir une école</option>
+        <!-- Remplissez cette liste avec les écoles de danse disponibles -->
+        <option *ngFor="let school of danceSchools" [value]="school.id">
+          {{ school.name }}
+        </option>
+      </select>
+      <div *ngIf="courseForm.get('danceSchoolId')?.invalid && (courseForm.get('danceSchoolId')?.touched || courseForm.get('danceSchoolId')?.dirty)">
+        <small class="error">Veuillez sélectionner une école de danse.</small>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="courseForm.invalid">Créer le cours</button>
+    <button type="button" class="btn btn-secondary" (click)="returnToCourseList()">Retour à la liste des cours</button>
+  </form>

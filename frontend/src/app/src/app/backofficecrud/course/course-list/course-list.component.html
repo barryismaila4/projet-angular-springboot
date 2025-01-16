@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Liste des Cours</h2>
+    <button class="btn btn-primary mb-3" (click)="addCourse()">Ajouter un Nouveau Cours</button>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Contenu</th>
+          <th>Instructeur</th>
+          <th>École de Danse</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses">
+          <td>{{ course.title }}</td>
+          <td>{{ course.contenu }}</td>
+          <td>{{ course.instructor }}</td>
+          <td>{{ course.danceSchool?.name }}</td>
+          <td>
+            <button *ngIf="course.id !== null" (click)="editCourse(course.id)">Modifier</button>
+            <button *ngIf="course.id !== null" (click)="deleteCourse(course.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

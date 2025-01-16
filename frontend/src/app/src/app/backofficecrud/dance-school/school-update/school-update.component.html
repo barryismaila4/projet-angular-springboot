@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>Modifier une école de danse</h2>
+    <form [formGroup]="schoolForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nom de l'école</label>
+        <input id="name" formControlName="name" class="form-control" type="text" placeholder="Nom de l'école" required>
+      </div>
+      <div class="form-group">
+        <label for="localisation">Localisation</label>
+        <input id="localisation" formControlName="localisation" class="form-control" type="text" placeholder="Localisation" required>
+      </div>
+      <div class="form-group">
+        <label for="openday">Jour d'ouverture</label>
+        <input id="openday" formControlName="openday" class="form-control" type="text" placeholder="Jour d'ouverture" required>
+      </div>
+      <div class="form-group">
+        <label for="closeday">Jour de fermeture</label>
+        <input id="closeday" formControlName="closeday" class="form-control" type="text" placeholder="Jour de fermeture" required>
+      </div>
+      <div class="form-group">
+        <label for="opentime">Heure d'ouverture</label>
+        <input id="opentime" formControlName="opentime" class="form-control" type="text" placeholder="Heure d'ouverture" required>
+      </div>
+      <div class="form-group">
+        <label for="closetime">Heure de fermeture</label>
+        <input id="closetime" formControlName="closetime" class="form-control" type="text" placeholder="Heure de fermeture" required>
+      </div>
+  
+      <!-- Sélectionner une catégorie de danse -->
+      <div class="form-group">
+        <label for="danceCategoryId">Catégorie de danse</label>
+        <select id="danceCategoryId" formControlName="danceCategoryId" class="form-control">
+          <option value="" disabled selected>Choisissez une catégorie</option>
+          <option *ngFor="let category of danceCategories" [value]="category.id">
+            {{ category.name }}
+          </option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="schoolForm.invalid">Mettre à jour</button>
+    </form>
+  </div>
+  
